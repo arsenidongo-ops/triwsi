@@ -2,56 +2,69 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Inscription</title>
+    <title>Mon Site</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- INSCRIPTION -->
-<div class="box" id="inscription">
-    <h2>Inscription</h2>
-    <input type="text" placeholder="Nom">
-    <input type="email" placeholder="Email">
-    <button onclick="goQuestions()">S'inscrire</button>
-</div>
+<div class="container">
 
-<!-- QUESTIONS -->
-<div class="box hidden" id="questions">
-    <h2>Questionnaire</h2>
-    <div id="listeQuestions"></div>
-    <button onclick="valider()">Valider</button>
-</div>
+    <!-- ÉTAPE 1 : INSCRIPTION -->
+    <div class="step active" id="step1">
+        <h2>Inscription</h2>
+        <input type="text" id="nom" placeholder="Nom">
+        <input type="email" id="email" placeholder="Adresse email">
+        <button onclick="versQuestions()">Continuer</button>
+        <p class="error" id="error"></p>
+    </div>
 
-<!-- CHARGEMENT 1 -->
-<div class="box hidden" id="loading1">
-    <h2>Traitement du dossier...</h2>
-    <div class="bar" id="bar1"></div>
-</div>
+    <!-- ÉTAPE 2 : QUESTIONS -->
+    <div class="step" id="step2">
+        <h2>Questions</h2>
+        <input type="number" placeholder="Âge">
+        <input type="text" placeholder="Pays">
+        <input type="text" placeholder="Ville">
+        <input type="text" placeholder="Profession">
+        <input type="text" placeholder="Centre d’intérêt">
+        <button onclick="versProduits()">Suivant</button>
+    </div>
 
-<p id="percent1">0%</p>
+    <!-- CHARGEMENT -->
+    <div class="step" id="loading">
+        <h2>Chargement...</h2>
+        <div class="loader"></div>
+        <p>Veuillez patienter 15 secondes</p>
+    </div>
 
-<!-- CHARGEMENT 2 -->
-<div class="box hidden" id="loading2">
-    <h2>Validation finale...</h2>
-    <div class="progress">
-    <div class="bar" id="bar2"></div>
-</div>   
-    <p id="percent2">0%</p>
+    <!-- ÉTAPE 3 : PRODUITS -->
+    <div class="step" id="step3">
+        <h2>Choisissez un article</h2>
 
-</div>
+        <div class="products">
+            <div onclick="whatsapp('Smartphone ou iPhone')">
+                <img src="images/phone.jpg">
+                <p>Smartphone / iPhone</p>
+            </div>
 
+            <div onclick="whatsapp('Vêtements')">
+                <img src="images/clothes.jpg">
+                <p>Vêtements</p>
+            </div>
 
-<!-- BLAGUE -->
-<div class="box hidden" id="final">
-    <h1>😂 TU T’ES FAIT AVOIR 😂</h1>
-    <p>C’était une blague.</p>
-    <p>J’ai juste pris ton temps 😎</p>
+            <div onclick="whatsapp('Lunettes photochromiques')">
+                <img src="images/glasses.jpg">
+                <p>Lunettes photochromiques</p>
+            </div>
+
+            <div onclick="whatsapp('Chaussures')">
+                <img src="images/shoes.jpg">
+                <p>Chaussures</p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="script.js"></script>
-<audio id="sound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-10.mp3" type="audio/mpeg">
-</audio>
-
 </body>
 </html>
